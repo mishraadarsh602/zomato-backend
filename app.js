@@ -16,7 +16,12 @@ app.use(express.urlencoded({extended:false}))
 
 app.use("/api", AppRouter)
 //app.use("/api",AppRouter)
-const MONGO_DB_URI = "mongodb://127.0.0.1:27017/batch02April";
+//for local
+// const MONGO_DB_URI = "mongodb://127.0.0.1:27017/batch02April";      ""
+//for atlas connection
+const password = encodeURIComponent("zomato");
+
+const MONGO_DB_URI = `mongodb+srv://mishraadarsh602:${password}@cluster0.u4tfcf4.mongodb.net/zomato?retryWrites=true&w=majority`;
 mongoose.connect(MONGO_DB_URI).then(() => {
     console.log("connected to db successfully");
 
